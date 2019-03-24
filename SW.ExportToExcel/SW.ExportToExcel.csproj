@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>SimplyWorks.ExportToExcel</PackageId>
+    <Product>SimplyWorks.ExportToExcel</Product>
+    <Authors>SimplyWorks</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.9.1" />
+  </ItemGroup>
+
+</Project>
