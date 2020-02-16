@@ -11,9 +11,24 @@ namespace SW.ExportToExcel.UnitTests
         public void TestMethod1()
         {
 
-            var mylist = new List<Employee>();
+            var mylist = new List<Employee>()
+            {
+                new Employee
+                {
+                    Name = "samer",
+                    DoB = DateTime.UtcNow,
+                    Id = 12
+                },
+                new Employee
+                {
+                    Name = "wael",
+                    DoB = DateTime.UtcNow,
+                    Id = 13
+                }
 
-            // mylist.Ex
+            };
+
+            var bytes = mylist.ExportToExcel(); 
 
         }
 
