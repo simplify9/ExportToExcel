@@ -83,6 +83,18 @@ namespace SW.ExportToExcel
             }
         }
 
+        async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Stream stream)
+        {
+            var dictionary = typeof(TEntity).GetProperties().ToDictionary(k => k.Name, v => v.Name);
+            await WriteExcel(data, stream,   dictionary);
+        }
+
+        async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Stream stream, IEnumerable<string> columns)
+        {
+            var dictionary = columns.ToDictionary(k => k, v => v);
+            await WriteExcel(data, stream, dictionary);
+        }
+
         async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Stream stream, IDictionary<string, string> columns)
         {
             using (var doc = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
