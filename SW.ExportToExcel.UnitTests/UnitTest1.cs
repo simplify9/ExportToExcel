@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SW.ExportToExcel.UnitTests
 {
@@ -8,7 +9,7 @@ namespace SW.ExportToExcel.UnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        async public Task TestMethod1()
         {
 
             var mylist = new List<Employee>()
@@ -28,7 +29,7 @@ namespace SW.ExportToExcel.UnitTests
 
             };
 
-            var bytes = mylist.ExportToExcel(); 
+            var bytes = await mylist.ExportToExcel(); 
 
         }
 
