@@ -71,6 +71,7 @@ namespace SW.ExportToExcel
             {
                 using (var fileStream = File.Open(tempFile, FileMode.Create, FileAccess.ReadWrite))
                 {
+                    
                     await WriteExcel(data, fileStream, columns); 
                 }
 
@@ -178,7 +179,7 @@ namespace SW.ExportToExcel
                 await WriteXmlToPartAsync(stylesheetPart, styleSheetElement);
 
                 await stream.FlushAsync();
-                stream.Close();  
+                //stream.Close();  
             }
 
 
@@ -288,7 +289,6 @@ namespace SW.ExportToExcel
                 element.WriteTo(xmlTextWriter);
                 xmlTextWriter.WriteEndDocument();
                 xmlTextWriter.Flush();
-                xmlTextWriter.Close();
             }
         }
     }
