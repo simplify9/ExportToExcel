@@ -69,11 +69,7 @@ namespace SW.ExportToExcel
 
             try
             {
-                using (var fileStream = File.Open(tempFile, FileMode.Create, FileAccess.ReadWrite))
-                {
-                    
-                    await WriteExcel(data, fileStream, columns); 
-                }
+                await WriteExcel(data, tempFile, columns);
 
                 return File.ReadAllBytes(tempFile);
             }
@@ -83,10 +79,30 @@ namespace SW.ExportToExcel
             }
         }
 
+        async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, string filePath)
+        {
+            var dictionary = typeof(TEntity).GetProperties().ToDictionary(k => k.Name, v => v.Name);
+            await WriteExcel(data, filePath, dictionary);
+        }
+
+        async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, string filePath, IEnumerable<string> columns)
+        {
+            var dictionary = columns.ToDictionary(k => k, v => v);
+            await WriteExcel(data, filePath, dictionary);
+        }
+
+        async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, string filePath, IDictionary<string, string> columns)
+        {
+            using (var fileStream = File.Open(filePath, FileMode.Create, FileAccess.ReadWrite))
+            {
+                await WriteExcel(data, fileStream, columns);
+            }
+        }
+
         async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Stream stream)
         {
             var dictionary = typeof(TEntity).GetProperties().ToDictionary(k => k.Name, v => v.Name);
-            await WriteExcel(data, stream,   dictionary);
+            await WriteExcel(data, stream, dictionary);
         }
 
         async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Stream stream, IEnumerable<string> columns)
