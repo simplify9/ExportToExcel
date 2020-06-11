@@ -4,11 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>SimplyWorks.ExportToExcel</PackageId>
     <Product>SimplyWorks.ExportToExcel</Product>
-    <Authors>SimplyWorks</Authors>
+    <Authors>Simplify9</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.10.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
