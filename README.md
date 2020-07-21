@@ -185,8 +185,6 @@ async public static Task WriteExcel<TEntity>(this IEnumerable<TEntity> data, Str
 }
 ```
 
-## Examples
-
 ## Getting support 👷
 If you encounter any bugs, don't hesitate to submit an [issue](https://github.com/simplify9/DeeBee/issues). We'll get back to you promptly!
 
