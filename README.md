@@ -19,9 +19,11 @@ To use *ExportToExcel*, you will require the [`Documentformat.OpenXml`](https://
 
 ## Functions Available 
 1. *ExportToExcel*
+
 ExportToExcel has 3 overloads. You can pass it an enumerable of data, where the column names are generated from TEntity's properties. One where you can pass both an enumerable of data and an enumerable of string, where the column names will be taken from this enumerable. And finally, one where you can pass it a dictionary that will be used to generate the column names.
 
 2. *WriteExcel*
+
 WriteExcel has 6 overloads, taking in column names from a dictionary, as well as some data in an IEnumberable array. It also takes in a file stream to start writing onto that very file with the data it's collected. 
 
 ## Getting support 👷
