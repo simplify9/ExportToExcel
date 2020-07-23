@@ -27,5 +27,5 @@ ExportToExcel has 3 overloads. You can pass it an enumerable of data, where the 
 WriteExcel has 6 overloads, taking in column names from a dictionary, as well as some data in an IEnumberable array. It also takes in a file stream to start writing onto that very file with the data it's collected. 
 
 ## Getting support 👷
-If you encounter any bugs, don't hesitate to submit an [issue](https://github.com/simplify9/DeeBee/issues). We'll get back to you promptly!
+If you encounter any bugs, don't hesitate to submit an [issue](https://github.com/simplify9/ExportToExcel/issues). We'll get back to you promptly!
 
