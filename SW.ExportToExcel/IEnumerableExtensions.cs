@@ -277,11 +277,24 @@ namespace SW.ExportToExcel
                 case object _ when propertyInfo.PropertyType == typeof(DateTime):
                 case object _ when propertyInfo.PropertyType == typeof(DateTime):
 
-                    element = new XElement("c",
-                        new XAttribute("s", "1"),
-                        new XElement("v", Convert.ToDateTime(value).ToOADate()));
+                    
+                    if (Convert.ToDateTime(value).Year >= 100)
+                    {
+                        element = new XElement("c",
+                            new XAttribute("s", "1"),
+                            new XElement("v", Convert.ToDateTime(value).ToOADate()));
+                        return element;
+                    }
+                    else
+                    {
+                        element = new XElement("c",
+                            new XElement("v"));
 
-                    return element;
+                        return element;
+                    }
+                    
+
+                    
 
 
                 case object _ when propertyInfo.PropertyType == typeof(DateTime?):
@@ -289,7 +302,7 @@ namespace SW.ExportToExcel
 
                     var dt = (DateTime?) value;
 
-                    if (dt.HasValue)
+                    if (dt.HasValue && dt.Value.Year >= 100)
                     {
                         element = new XElement("c",
                             new XAttribute("s", "1"),
